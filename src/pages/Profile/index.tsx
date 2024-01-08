@@ -1,10 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const ProfileTab: React.FC = () => {
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default ProfileTab;
