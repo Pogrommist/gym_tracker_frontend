@@ -4,14 +4,13 @@ import ExercisesTab from "../pages/Exercises";
 import ProfileTab from "../pages/Profile";
 import RouterBottomNavigation from "./RouterBottomNavigation";
 import TrainingTab from "../pages/Training";
-import withAppBar from "../pages/shared/WithAppBar";
+import withAppBar from "../shared/WithAppBar";
 import PrivateRoute from "./PrivateRoute";
 import AuthTab from "../pages/Auth";
 
-const ProfileWithAppBar = withAppBar(ProfileTab, 'Профиль')
-const ExercisesWithAppBar = withAppBar(ExercisesTab, 'Упражнения')
-const TrainingWithAppBar = withAppBar(TrainingTab, 'Тренировка')
-const AuthWithAppBar = withAppBar(AuthTab, 'Войти/регистрация')
+const ProfileWithAppBar = withAppBar(ProfileTab, "Профиль");
+const ExercisesWithAppBar = withAppBar(ExercisesTab, "Упражнения");
+const TrainingWithAppBar = withAppBar(TrainingTab, "Тренировка");
 
 export const routes = createBrowserRouter([
   {
@@ -19,22 +18,22 @@ export const routes = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: '/exercises',
+        path: "/exercises",
         element: <PrivateRoute element={ExercisesWithAppBar} />,
       },
       {
-        path: '/profile',
-        element: <PrivateRoute element={ProfileWithAppBar} />
+        path: "/profile",
+        element: <PrivateRoute element={ProfileWithAppBar} />,
       },
       {
-        path: '/training',
-        element: <PrivateRoute element={TrainingWithAppBar} />
+        path: "/training",
+        element: <PrivateRoute element={TrainingWithAppBar} />,
       },
       {
-        path: '/auth',
-        element: <AuthWithAppBar />
-      }
-    ]
+        path: "/auth",
+        element: <AuthTab />,
+      },
+    ],
   },
 ]);
 
