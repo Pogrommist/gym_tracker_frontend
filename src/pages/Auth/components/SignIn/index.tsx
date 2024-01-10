@@ -19,7 +19,7 @@ const SignIn: React.FC<ISignInProps> = ({ setIsLogin }) => {
   const handleSubmit = async ({ email, password }: ISignInForm) => {
     try {
       await fetchWithAuthHeaders(
-        `${process.env.REACT_APP_API_URL}auth/sign_in`,
+        `auth/sign_in`,
         {
           method: "POST",
           body: JSON.stringify({ email, password }),

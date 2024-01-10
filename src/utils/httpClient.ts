@@ -36,7 +36,7 @@ export const fetchWithAuthHeaders = async (
     headers.set("uid", headersStore.uid || "");
   }
 
-  const response = await fetch(url, { ...options, headers });
+  const response = await fetch(`${process.env.REACT_APP_API_URL}${url}`, { ...options, headers });
 
   const responseHeaders = response.headers;
   headersStore.accessToken = responseHeaders.get("access-token") || null;

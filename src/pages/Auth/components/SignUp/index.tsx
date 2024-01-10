@@ -20,7 +20,7 @@ const SignUp: React.FC<ISignUpProps> = ({ setIsLogin }) => {
   const handleSubmit = async ({ email, password }: ISignUpForm) => {
     try {
       await fetchWithAuthHeaders(
-        `${process.env.REACT_APP_API_URL}auth/sign_up`,
+        `auth/sign_up`,
         {
           method: "POST",
           body: JSON.stringify({ email, password }),
