@@ -7,8 +7,9 @@ import TrainingTab from "../pages/Training";
 import withAppBar from "../shared/WithAppBar";
 import PrivateRoute from "./PrivateRoute";
 import AuthTab from "../pages/Auth";
+import cogIcon from '/Users/user/Projects/gym_tracker_frontend/src/assets/images/Profile/Gear.svg';
 
-const ProfileWithAppBar = withAppBar(ProfileTab, "Профиль");
+const ProfileWithAppBar = withAppBar(ProfileTab, "Профиль", cogIcon);
 const ExercisesWithAppBar = withAppBar(ExercisesTab, "Упражнения");
 const TrainingWithAppBar = withAppBar(TrainingTab, "Тренировка");
 
