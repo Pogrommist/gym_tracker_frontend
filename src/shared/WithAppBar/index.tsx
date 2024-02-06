@@ -2,12 +2,18 @@ import React from "react";
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import { Stack } from "./styles";
 
+// Обновленная функция withAppBar
 const withAppBar = (
   WrappedComponent: React.ComponentType,
   title: string,
   icon?: string | null
 ) => {
   return () => {
+    const handleIconClick = () => {
+      // Перенаправление на страницу настроек
+      window.location.href = "/settings";
+    };
+
     return (
       <>
         <AppBar position="static">
@@ -17,7 +23,11 @@ const withAppBar = (
             </Typography>
             {icon && (
               <div style={{ position: "relative" }}>
-                <IconButton size="large" color="inherit">
+                <IconButton
+                  size="large"
+                  color="inherit"
+                  onClick={handleIconClick} // Добавляем обработчик клика
+                >
                   <img
                     src={icon}
                     alt="Шестеренка"
