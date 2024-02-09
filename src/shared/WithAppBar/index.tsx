@@ -1,8 +1,8 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import { Stack } from "./styles";
+import styled from "styled-components"; // Импортируем styled из styled-components
 
-// Обновленная функция withAppBar
 const withAppBar = (
   WrappedComponent: React.ComponentType,
   title: string,
@@ -10,7 +10,6 @@ const withAppBar = (
 ) => {
   return () => {
     const handleIconClick = () => {
-      // Перенаправление на страницу настроек
       window.location.href = "/settings";
     };
 
@@ -22,19 +21,15 @@ const withAppBar = (
               {title}
             </Typography>
             {icon && (
-              <div style={{ position: "relative" }}>
+              <IconWrapper>
                 <IconButton
                   size="large"
                   color="inherit"
-                  onClick={handleIconClick} // Добавляем обработчик клика
+                  onClick={handleIconClick}
                 >
-                  <img
-                    src={icon}
-                    alt="Шестеренка"
-                    style={{ width: "24px", height: "24px" }}
-                  />
+                  <IconImage src={icon} alt="Шестеренка" />
                 </IconButton>
-              </div>
+              </IconWrapper>
             )}
           </Toolbar>
         </AppBar>
@@ -46,5 +41,16 @@ const withAppBar = (
   };
 };
 
-export default withAppBar;
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
+const IconImage = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+
+
+export default withAppBar;

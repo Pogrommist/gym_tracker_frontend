@@ -1,85 +1,96 @@
 import React, { useState } from "react";
-import "./SettingsTab.css";
+import styled from "styled-components";
 
 const SettingsTab: React.FC = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [gender, setGender] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    weight: "",
+    height: "",
+    gender: ""
+  });
 
-  const handleFirstNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFirstName(event.target.value);
-  };
-
-  const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLastName(event.target.value);
-  };
-
-  const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setWeight(event.target.value);
-  };
-
-  const handleHeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setHeight(event.target.value);
-  };
-
-  const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => { 
-    setGender(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value
+    });
   };
 
   return (
-    <div className="settings-container">
-      <div className="input-row">
+    <SettingsContainer>
+      <InputRow>
         <label htmlFor="firstName">Имя:</label>
         <input
           type="text"
           id="firstName"
-          value={firstName}
-          onChange={handleFirstNameChange}
+          value={formData.firstName}
+          onChange={handleChange}
         />
-      </div>
-      <div className="input-row">
+      </InputRow>
+      <InputRow>
         <label htmlFor="lastName">Фамилия:</label>
         <input
           type="text"
           id="lastName"
-          value={lastName}
-          onChange={handleLastNameChange}
+          value={formData.lastName}
+          onChange={handleChange}
         />
-      </div>
-      <div className="input-row">
+      </InputRow>
+      <InputRow>
         <label htmlFor="weight">Вес:</label>
         <input
           type="text"
           id="weight"
-          value={weight}
-          onChange={handleWeightChange}
+          value={formData.weight}
+          onChange={handleChange}
         />
-      </div>
-      <div className="input-row">
+      </InputRow>
+      <InputRow>
         <label htmlFor="height">Рост:</label>
         <input
           type="text"
           id="height"
-          value={height}
-          onChange={handleHeightChange}
+          value={formData.height}
+          onChange={handleChange}
         />
-      </div>
-      <div className="input-row">
+      </InputRow>
+      <InputRow>
         <label htmlFor="gender">Пол:</label>
         <select
           id="gender"
-          value={gender}
-          onChange={handleGenderChange}
+          value={formData.gender}
+          onChange={handleChange}
         >
           <option value="male">Мужской</option>
           <option value="female">Женский</option>
         </select>
-      </div>
-    </div>
+      </InputRow>
+    </SettingsContainer>
   );
 };
 
-export default SettingsTab;
+const SettingsContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+`;
 
+const InputRow = styled.div`
+  margin-bottom: 10px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input,
+  select {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+`;
+
+export default SettingsTab;
