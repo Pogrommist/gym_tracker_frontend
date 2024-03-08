@@ -1,5 +1,6 @@
-import { createBrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 
+<<<<<<< HEAD
 import ExercisesTab from "../pages/Exercises";
 import ProfileTab from "../pages/Profile";
 import RouterBottomNavigation from "./RouterBottomNavigation";
@@ -14,26 +15,44 @@ const ProfileWithAppBar = withAppBar(ProfileTab, "Профиль", cogIcon);
 const ExercisesWithAppBar = withAppBar(ExercisesTab, "Упражнения");
 const TrainingWithAppBar = withAppBar(TrainingTab, "Тренировка");
 const SettingsWithAppBar = withAppBar(SettingsTab, "Настройки профиля");
+=======
+import ExercisesTab from '../pages/Exercises';
+import ProfileTab from '../pages/Profile';
+import RouterBottomNavigation from './RouterBottomNavigation';
+import TrainingTab from '../pages/Training';
+import withAppBar from '../shared/WithAppBar';
+import PrivateRoute from './PrivateRoute';
+import AuthTab from '../pages/Auth';
+import ExerciseAppBarIcon from 'pages/Training/components/ExerciseAppBarIcon';
+
+const ProfileWithAppBar = withAppBar(ProfileTab, 'Профиль');
+const ExercisesWithAppBar = withAppBar(ExercisesTab, 'Упражнения');
+const TrainingWithAppBar = withAppBar(
+  TrainingTab,
+  'Список тренировок',
+  <ExerciseAppBarIcon />,
+);
+>>>>>>> main
 
 export const routes = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Root />,
     children: [
       {
-        path: "/exercises",
+        path: '/exercises',
         element: <PrivateRoute element={ExercisesWithAppBar} />,
       },
       {
-        path: "/profile",
+        path: '/profile',
         element: <PrivateRoute element={ProfileWithAppBar} />,
       },
       {
-        path: "/training",
+        path: '/training',
         element: <PrivateRoute element={TrainingWithAppBar} />,
       },
       {
-        path: "/auth",
+        path: '/auth',
         element: <AuthTab />,
       },
       {
