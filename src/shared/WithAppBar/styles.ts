@@ -5,6 +5,8 @@ export const Stack = styled(BaseStack)`
   padding: 1rem;
 `;
 
+<<<<<<< HEAD
+=======
 export const AppBarIconContainer = styled(Stack)`
   padding: 0;
 `;
@@ -15,3 +17,4 @@ export const Toolbar = styled(BaseToolbar)`
   justify-content: space-between;
   align-items: center;
 `;
+>>>>>>> main
