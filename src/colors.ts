@@ -4,5 +4,6 @@ export const COLORS = {
   LIGHT: '#9C88D3',
   DARK: '#2A2933',
   DARKER: '#6D6581',
+  GraySuit: '#BBB7C9',
   WHITE: '#FFFFFF',
 };

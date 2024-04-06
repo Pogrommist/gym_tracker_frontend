@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import UserInformation from './components/UserInformation';
 
 const ProfileTab: React.FC = () => {
-  return <div></div>;
+  return <UserInformation />;
 };
 
 export default ProfileTab;

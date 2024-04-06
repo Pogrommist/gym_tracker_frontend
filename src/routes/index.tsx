@@ -8,8 +8,13 @@ import withAppBar from '../shared/WithAppBar';
 import PrivateRoute from './PrivateRoute';
 import AuthTab from '../pages/Auth';
 import ExerciseAppBarIcon from 'pages/Training/components/ExerciseAppBarIcon';
+import ProfileAppBarIcon from 'pages/Profile/components/ProfileAppBarIcon';
 
-const ProfileWithAppBar = withAppBar(ProfileTab, 'Профиль');
+const ProfileWithAppBar = withAppBar(
+  ProfileTab,
+  'Профиль',
+  <ProfileAppBarIcon />,
+);
 const ExercisesWithAppBar = withAppBar(ExercisesTab, 'Упражнения');
 const TrainingWithAppBar = withAppBar(
   TrainingTab,
