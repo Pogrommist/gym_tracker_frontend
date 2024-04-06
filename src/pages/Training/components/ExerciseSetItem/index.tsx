@@ -26,11 +26,17 @@ interface IExerciseRegister {
 const ExerciseSetItem: FC<IExerciseSetItem> = ({
   exerciseSet: { id, name, exercise_registers },
 }) => {
-  const handleEditSet = () => {
+  const handleEditSet = (e: React.MouseEvent<SVGSVGElement>) => {
+    e.stopPropagation()
     console.log('Edit set', id);
   };
+
+  const handleStartTraining = () => {
+    console.log('Start training', id);
+  }
+
   return (
-    <ItemWrapper key={id}>
+    <ItemWrapper key={id} onClick={handleStartTraining}>
       <ItemHeader>
         <Typography>{name}</Typography>
         <TuneIcon onClick={handleEditSet} />
